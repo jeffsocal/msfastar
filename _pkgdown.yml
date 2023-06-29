@@ -1,0 +1,20 @@
+template:
+  bootstrap: 5
+reference:
+- title: Import FASTA
+  description: |
+    Import a FASTA protein sequence file.
+  contents:
+  - read_fasta
+  - digest
+  - get_peptides
+  - peptides
+  - print.rmsfasta
+
+- title: internal
+  contents:
+  - check_fasta
+  - extract
+  - println
+  - regex
+  - rmsfasta
