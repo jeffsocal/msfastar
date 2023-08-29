@@ -6,6 +6,7 @@
 #'
 #' @param x an rmsfasta data object
 #' @param ... parameters for `peptides()`
+#' @param mc.cores number of parallel cores to use for processing
 #'
 #' @return a rmsfasta data object
 #' @export
@@ -18,13 +19,14 @@
 #'
 digest <- function(
     x = NULL,
-    ...
+    ...,
+    mc.cores = 1
 ){
   check_fasta(x)
-  x <- lapply(x, function(x) {
+  x <- parallel::mclapply(x, function(x) {
     x$peptides <- peptides(x$sequence, ...)
     return(x)
-  })
+  }, mc.cores = mc.cores)
   return(rmsfasta(x))
 }
 

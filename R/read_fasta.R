@@ -34,7 +34,7 @@ read_fasta <- function(fasta_path = NULL,
   if(is.null(patterns)) { patterns <- regex() }
   if(mode(patterns) != 'list') {cli::cli_abort(c("x" = "patterns is `{mode(patterns)}`, should be a list"))}
 
-  cli::cli_process_start("Parsing FASTA file {basename(fasta_path)}")
+  cli::cli_progress_step("Parsing FASTA file {basename(fasta_path)}")
 
   tryCatch({
 
@@ -53,7 +53,7 @@ read_fasta <- function(fasta_path = NULL,
     cli::cli_process_failed()
     cli::cli_abort(err)
   })
-  cli::cli_process_done()
+  cli::cli_progress_done()
 
   class(l_fasta) <- 'rmsfasta'
 
