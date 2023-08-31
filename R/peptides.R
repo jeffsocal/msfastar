@@ -31,7 +31,8 @@ peptides <- function(
     sequence = NULL,
     enzyme = "[KR]",
     partial = 0:3,
-    length = c(6,30)
+    length = c(6,30),
+    remove_nterm_m = TRUE
 ){
 
   if(mode(partial) != 'numeric') {cli::cli_abort(c("x" = "partial is `{mode(partial)}`, should be an numeric"))}
@@ -53,7 +54,9 @@ peptides <- function(
     if(partial >= 2)
       p[[3]] <- paste0(p[[2]][-base::length(p[[2]])], p[[1]][-c(1,2)])
 
-  p <- sort(unique(unlist(p)))
+
+  p <- unique(unlist(p))
+  if(remove_nterm_m == TRUE) p <- c(p, trimws(p[1], 'left', whitespace = 'M'))
 
   w <- unique(c(which(stringr::str_length(p) < length[1]),
               which(stringr::str_length(p) > length[2])))
