@@ -4,7 +4,13 @@
 \alias{peptides}
 \title{Proteolytic digest a sequence}
 \usage{
-peptides(sequence = NULL, enzyme = "[KR]", partial = 0:3, length = c(6, 30))
+peptides(
+  sequence = NULL,
+  enzyme = "[KR]",
+  partial = 0:3,
+  length = c(6, 30),
+  remove_nterm_m = TRUE
+)
 }
 \arguments{
 \item{sequence}{as character string}

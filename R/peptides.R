@@ -47,16 +47,20 @@ peptides <- function(
   enzyme <- sub("\\]", "#]", enzyme)
 
   p <- list()
+  nterm <- c()
   p[[1]] <- sub("\\#", "", stringr::str_extract_all(paste0(sequence,"#"), paste0("(.*?", enzyme, ")"))[[1]])
-  if(partial >= 1)
+  if(remove_nterm_m == TRUE) nterm <- c(nterm, trimws(p[[1]][1], 'left', whitespace = 'M'))
+  if(partial >= 1){
     p[[2]] <- paste0(p[[1]][-base::length(p[[1]])], p[[1]][-1])
-  if(partial >= 2)
-    if(partial >= 2)
+    if(remove_nterm_m == TRUE) nterm <- c(nterm, trimws(p[[2]][1], 'left', whitespace = 'M'))
+  }
+  if(partial >= 2){
       p[[3]] <- paste0(p[[2]][-base::length(p[[2]])], p[[1]][-c(1,2)])
+      if(remove_nterm_m == TRUE) nterm <- c(nterm, trimws(p[[3]][1], 'left', whitespace = 'M'))
+  }
 
-
-  p <- unique(unlist(p))
-  if(remove_nterm_m == TRUE) p <- c(p, trimws(p[1], 'left', whitespace = 'M'))
+  p <- unique(c(unlist(p), nterm))
+  p <- p[which(!is.na(p))]
 
   w <- unique(c(which(stringr::str_length(p) < length[1]),
               which(stringr::str_length(p) > length[2])))
