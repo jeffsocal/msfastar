@@ -42,7 +42,14 @@ peptides <- function(
 
   if(mode(sequence) != 'character') {cli::cli_abort(c("x" = "sequence is `{mode(sequence)}`, should be a character string"))}
   if(mode(enzyme) != 'character') {cli::cli_abort(c("x" = "enzyme is `{mode(sequence)}`, should be a regex character string"))}
-  if(grepl("[^A-Z]", sequence)) {cli::cli_abort(c("x" = "sequence contains non alpha characters"))}
+  if(grepl("[a-z]", sequence)) {
+    cli::cli_warn(c("x" = "sequence contains lowercase characters -> replacing"))
+    sequence <- sequence |> stringr::str_to_upper()
+  }
+  if(grepl("[^A-Z]", sequence)) {
+    cli::cli_warn(c("x" = "sequence contains non alpha characters -> removing"))
+    sequence <- sequence |> stringr::str_remove("[^A-Z]")
+  }
 
   enzyme <- sub("\\]", "#]", enzyme)
 
@@ -55,15 +62,15 @@ peptides <- function(
     if(remove_nterm_m == TRUE) nterm <- c(nterm, trimws(p[[2]][1], 'left', whitespace = 'M'))
   }
   if(partial >= 2){
-      p[[3]] <- paste0(p[[2]][-base::length(p[[2]])], p[[1]][-c(1,2)])
-      if(remove_nterm_m == TRUE) nterm <- c(nterm, trimws(p[[3]][1], 'left', whitespace = 'M'))
+    p[[3]] <- paste0(p[[2]][-base::length(p[[2]])], p[[1]][-c(1,2)])
+    if(remove_nterm_m == TRUE) nterm <- c(nterm, trimws(p[[3]][1], 'left', whitespace = 'M'))
   }
 
   p <- unique(c(unlist(p), nterm))
   p <- p[which(!is.na(p))]
 
   w <- unique(c(which(stringr::str_length(p) < length[1]),
-              which(stringr::str_length(p) > length[2])))
+                which(stringr::str_length(p) > length[2])))
   if(length(w) > 0) {p <- p[-w]}
 
   return(p)
