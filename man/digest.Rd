@@ -4,14 +4,22 @@
 \alias{digest}
 \title{Proteolytic digest a read_fastad fasta list}
 \usage{
-digest(x = NULL, ..., mc.cores = 1)
+digest(
+  x = NULL,
+  regex = ".+?[KR]",
+  partial = 2,
+  lower_pep_len = 6,
+  upper_pep_len = 30,
+  remove_m = FALSE,
+  mc.cores = 1
+)
 }
 \arguments{
 \item{x}{an rmsfasta data object}
 
-\item{...}{parameters for \code{peptides()}}
-
 \item{mc.cores}{number of parallel cores to use for processing}
+
+\item{...}{parameters for \code{peptides()}}
 }
 \value{
 a rmsfasta data object

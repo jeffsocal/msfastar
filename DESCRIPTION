@@ -20,4 +20,5 @@ Imports:
     readr,
     rlang,
     stringr
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
+Config/rextendr/version: 0.3.1

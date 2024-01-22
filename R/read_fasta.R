@@ -53,7 +53,6 @@ read_fasta <- function(fasta_path = NULL,
     cli::cli_process_failed()
     cli::cli_abort(err)
   })
-  cli::cli_progress_done()
 
   class(l_fasta) <- 'rmsfasta'
 

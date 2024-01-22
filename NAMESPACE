@@ -2,9 +2,13 @@
 
 S3method(as.data.frame,rmsfasta)
 S3method(print,rmsfasta)
+export(as_database)
 export(digest)
 export(get_peptides)
 export(peptides)
+export(protease)
 export(read_fasta)
 export(regex)
 export(save_fasta)
+export(sequence_prep)
+useDynLib(rmsfasta, .registration = TRUE)

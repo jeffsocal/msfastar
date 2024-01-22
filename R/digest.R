@@ -19,14 +19,26 @@
 #'
 digest <- function(
     x = NULL,
-    ...,
+    regex = ".+?[KR]",
+    partial = 2,
+    lower_pep_len = 6,
+    upper_pep_len = 30,
+    remove_m = FALSE,
     mc.cores = 1
 ){
+
+  cli::cli_progress_step(" .. digesting proteins")
+
   check_fasta(x)
   x <- parallel::mclapply(x, function(x) {
-    x$peptides <- peptides(x$sequence, ...)
+    x$peptides <- x$sequence |> protease(regex,
+                                         partial,
+                                         lower_pep_len,
+                                         upper_pep_len,
+                                         remove_m)
     return(x)
   }, mc.cores = mc.cores)
+
   return(rmsfasta(x))
 }
 
