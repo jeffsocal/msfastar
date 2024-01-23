@@ -27,10 +27,16 @@
 #' }
 #'
 read_fasta <- function(fasta_path = NULL,
-                  patterns = NULL
+                       patterns = NULL
 ){
 
+  cli::cli_div(theme = list(span.emph = list(color = "#ff4500")))
   if(is.null(fasta_path)) {cli::cli_abort(c("x" = "fasta_path is empty"))}
+  if(!grepl("\\.fasta", fasta_path)) {
+    file_ext <- stringr::str_extract(fasta_path, "\\..+$")
+    cli::cli_abort(c("x" = "expected a {.emph .fasta} file, got {.emph {file_ext}}"))
+  }
+
   if(is.null(patterns)) { patterns <- regex() }
   if(mode(patterns) != 'list') {cli::cli_abort(c("x" = "patterns is `{mode(patterns)}`, should be a list"))}
 
