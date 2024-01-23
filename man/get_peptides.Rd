@@ -2,12 +2,12 @@
 % Please edit documentation in R/digest.R
 \name{get_peptides}
 \alias{get_peptides}
-\title{Get all peptides from rmsfasta object as a vector}
+\title{Get all peptides from msfastar object as a vector}
 \usage{
 get_peptides(x = NULL)
 }
 \arguments{
-\item{x}{an rmsfasta data object}
+\item{x}{an msfastar data object}
 }
 \value{
 a vector

@@ -1,5 +1,5 @@
 ---
-title: "rmsfasta"
+title: "msfastar"
 author: Jeff Jones
 output:
   md_document:
@@ -22,7 +22,7 @@ To install, open R and type:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("jeffsocal/rmsfasta")
+devtools::install_github("jeffsocal/msfastar")
 ```
 
 ## Get Started
@@ -30,9 +30,9 @@ devtools::install_github("jeffsocal/rmsfasta")
 Its simple to get started, just point the `read_fasta()` function at a downloaded FASTA file and save as an object.
 
 ``` {r}
-library(rmsfasta)
+library(msfastar)
 
-path_to_fasta <- system.file("extdata", "albu_human.fasta", package = "rmsfasta")
+path_to_fasta <- system.file("extdata", "albu_human.fasta", package = "msfastar")
 fasta_data <- read_fasta(path_to_fasta)
 
 fasta_data[[1]]

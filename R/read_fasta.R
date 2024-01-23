@@ -15,7 +15,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' library(rmsfasta)
+#' library(msfastar)
 #' proteins <- read_fasta("~/Local/fasta/ecoli_UniProt.fasta")
 #'
 #' # using a custom supplied regex list
@@ -60,7 +60,7 @@ read_fasta <- function(fasta_path = NULL,
     cli::cli_abort(err)
   })
 
-  class(l_fasta) <- 'rmsfasta'
+  class(l_fasta) <- 'msfastar'
 
   return(l_fasta)
 }

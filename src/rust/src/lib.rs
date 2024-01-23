@@ -71,7 +71,7 @@ fn protease(sequence: &str,
 // This ensures exported functions are registered with R.
 // See corresponding C code in `entrypoint.c`.
 extendr_module! {
-    mod rmsfasta;
+    mod msfastar;
     fn sequence_prep;
     fn protease;
 }

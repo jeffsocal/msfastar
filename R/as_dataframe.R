@@ -1,4 +1,4 @@
-#' Helper function for converting a RMSFasta object to a table
+#' Helper function for converting a msfastar object to a table
 #'
 #' @param x rmfasta data object
 #' @param ... unused legacy
@@ -7,7 +7,7 @@
 #'
 #' @exportS3Method
 #'
-as.data.frame.rmsfasta <- function(
+as.data.frame.msfastar <- function(
     x,
     .drop = NULL,
     ...
@@ -23,7 +23,7 @@ as.data.frame.rmsfasta <- function(
     dplyr::bind_rows()
 }
 
-#' Helper function for converting a RMSFasta object to a table
+#' Helper function for converting a msfastar object to a table
 #'
 #' @param x rmfasta data object
 #' @param ... unused legacy
@@ -46,7 +46,7 @@ as_database <- function(
   return(list(proteins = protein_db, peptides = peptide_db))
 }
 
-#' Helper function for converting a RMSFasta object to a table
+#' Helper function for converting a msfastar object to a table
 #'
 #' @param x rmfasta data object
 #'
@@ -72,7 +72,7 @@ make_table <- function(x, .drop = NULL){
   x |> as.data.frame()
 }
 
-#' Helper function for converting a RMSFasta object to a table
+#' Helper function for converting a msfastar object to a table
 #'
 #' @param x rmfasta data object
 #'

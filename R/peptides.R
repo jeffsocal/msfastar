@@ -21,7 +21,7 @@
 #' @export
 #'
 #' @examples
-#' library(rmsfasta)
+#' library(msfastar)
 #' sequence <- "SAMERSMALLKPSAMPLERSEQUENCE"
 #' peptides(sequence)
 #'

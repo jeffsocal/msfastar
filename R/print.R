@@ -7,7 +7,7 @@
 #'
 #' @exportS3Method
 #'
-print.rmsfasta <- function(
+print.msfastar <- function(
     x, ...
 ) {
 

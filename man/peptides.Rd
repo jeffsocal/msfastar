@@ -39,7 +39,7 @@ a vector
 \code{peptides()} Generates peptide sequences based on \code{enzyme} and \code{partial} inputs.
 }
 \examples{
-library(rmsfasta)
+library(msfastar)
 sequence <- "SAMERSMALLKPSAMPLERSEQUENCE"
 peptides(sequence)
 

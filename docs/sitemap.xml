@@ -19,7 +19,7 @@
     <loc>/reference/digest.html</loc>
   </url>
   <url>
-    <loc>/reference/rmsfasta.html</loc>
+    <loc>/reference/msfastar.html</loc>
   </url>
   <url>
     <loc>/reference/extract.html</loc>
@@ -37,10 +37,10 @@
     <loc>/reference/peptides.html</loc>
   </url>
   <url>
-    <loc>/reference/print.rmsfasta.html</loc>
+    <loc>/reference/print.msfastar.html</loc>
   </url>
   <url>
-    <loc>/reference/print.rmsfasta.html</loc>
+    <loc>/reference/print.msfastar.html</loc>
   </url>
   <url>
     <loc>/reference/print.trigfasta.html</loc>
@@ -55,7 +55,7 @@
     <loc>/reference/regex.html</loc>
   </url>
   <url>
-    <loc>/reference/rmsfasta.html</loc>
+    <loc>/reference/msfastar.html</loc>
   </url>
   <url>
     <loc>/reference/trigfasta.html</loc>

@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @examples
-#' library(rmsfasta)
+#' library(msfastar)
 #' regex()
 #'
 #' regex(list("accession" = "sp\\|[A-Z]"))

@@ -9,7 +9,7 @@ reference:
   - digest
   - get_peptides
   - peptides
-  - print.rmsfasta
+  - print.msfastar
 
 - title: internal
   contents:
@@ -17,4 +17,4 @@ reference:
   - extract
   - println
   - regex
-  - rmsfasta
+  - msfastar

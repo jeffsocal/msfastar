@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(rmsfasta)
+library(msfastar)
 
-test_check("rmsfasta")
+test_check("msfastar")

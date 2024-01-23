@@ -15,21 +15,21 @@ digest(
 )
 }
 \arguments{
-\item{x}{an rmsfasta data object}
+\item{x}{an msfastar data object}
 
 \item{mc.cores}{number of parallel cores to use for processing}
 
 \item{...}{parameters for \code{peptides()}}
 }
 \value{
-a rmsfasta data object
+a msfastar data object
 }
 \description{
 \code{digest()} Generates peptide sequences based on \emph{enzyme} and \emph{partial} inputs.
 Only works with the "list" output of the \code{read_fasta()} function
 }
 \examples{
-library(rmsfasta)
+library(msfastar)
 proteins <- read_fasta("~/Local/fasta/ecoli_UniProt.fasta")
 
 proteins <- digest(proteins, enzyme = "[K]", partial = 2)

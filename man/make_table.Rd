@@ -2,7 +2,7 @@
 % Please edit documentation in R/as_dataframe.R
 \name{make_table}
 \alias{make_table}
-\title{Helper function for converting a RMSFasta object to a table}
+\title{Helper function for converting a msfastar object to a table}
 \usage{
 make_table(x, .drop = NULL)
 }
@@ -13,5 +13,5 @@ make_table(x, .drop = NULL)
 a data.frame
 }
 \description{
-Helper function for converting a RMSFasta object to a table
+Helper function for converting a msfastar object to a table
 }

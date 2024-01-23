@@ -1,4 +1,4 @@
-Package: rmsfasta
+Package: msfastar
 Type: Package
 Title: An R MS FASTA Reader and Parser
 Version: 0.8.0

@@ -11,7 +11,7 @@ To install, open R and type:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("jeffsocal/rmsfasta")
+devtools::install_github("jeffsocal/msfastar")
 ```
 
 ## Get Started
@@ -20,14 +20,14 @@ Its simple to get started, just point the `read_fasta()` function at a
 downloaded FASTA file and save as an object.
 
 ``` r
-library(rmsfasta)
+library(msfastar)
 #> 
-#> Attaching package: 'rmsfasta'
+#> Attaching package: 'msfastar'
 #> The following object is masked from 'package:base':
 #> 
 #>     read_fasta
 
-path_to_fasta <- system.file("extdata", "albu_human.fasta", package = "rmsfasta")
+path_to_fasta <- system.file("extdata", "albu_human.fasta", package = "msfastar")
 fasta_data <- read_fasta(path_to_fasta)
 #> ℹ Parsing FASTA file albu_human.fasta
 #> ✔ Parsing FASTA file albu_human.fasta ... done
@@ -114,7 +114,7 @@ library(tidyverse, warn.conflicts = FALSE)
 #> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter()  masks stats::filter()
 #> ✖ dplyr::lag()     masks stats::lag()
-#> ✖ stringr::regex() masks rmsfasta::regex()
+#> ✖ stringr::regex() masks msfastar::regex()
 fasta_data <- read_fasta(path_to_fasta) |> as.data.frame() |> as_tibble()
 #> ℹ Parsing FASTA file albu_human.fasta
 #> ✔ Parsing FASTA file albu_human.fasta ... done

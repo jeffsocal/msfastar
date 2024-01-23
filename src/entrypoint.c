@@ -1,8 +1,8 @@
 // We need to forward routine registration from C to Rust
 // to avoid the linker removing the static library.
 
-void R_init_rmsfasta_extendr(void *dll);
+void R_init_msfastar_extendr(void *dll);
 
-void R_init_rmsfasta(void *dll) {
-    R_init_rmsfasta_extendr(dll);
+void R_init_msfastar(void *dll) {
+    R_init_msfastar_extendr(dll);
 }

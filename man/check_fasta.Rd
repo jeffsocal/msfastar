@@ -2,17 +2,17 @@
 % Please edit documentation in R/dataobject.R
 \name{check_fasta}
 \alias{check_fasta}
-\title{Check the integrity of a rmsfasta data object}
+\title{Check the integrity of a msfastar data object}
 \usage{
 check_fasta(x = NULL)
 }
 \arguments{
-\item{data}{rmsfasta data object}
+\item{data}{msfastar data object}
 }
 \value{
 silent on success, an abort message on fail
 }
 \description{
 \code{check_fasta()} is a helper function that checks the structure and contents of
-a rmsfasta data object
+a msfastar data object
 }

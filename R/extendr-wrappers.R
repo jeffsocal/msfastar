@@ -4,11 +4,11 @@
 
 #
 # This file was created with the following call:
-#   .Call("wrap__make_rmsfasta_wrappers", use_symbols = TRUE, package_name = "rmsfasta")
+#   .Call("wrap__make_msfastar_wrappers", use_symbols = TRUE, package_name = "msfastar")
 
 #' @docType package
 #' @usage NULL
-#' @useDynLib rmsfasta, .registration = TRUE
+#' @useDynLib msfastar, .registration = TRUE
 NULL
 
 #' Return cleaned seqeuence

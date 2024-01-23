@@ -4,15 +4,15 @@
 #' `digest()` Generates peptide sequences based on *enzyme* and *partial* inputs.
 #' Only works with the "list" output of the `read_fasta()` function
 #'
-#' @param x an rmsfasta data object
+#' @param x an msfastar data object
 #' @param ... parameters for `peptides()`
 #' @param mc.cores number of parallel cores to use for processing
 #'
-#' @return a rmsfasta data object
+#' @return a msfastar data object
 #' @export
 #'
 #' @examples
-#' library(rmsfasta)
+#' library(msfastar)
 #' proteins <- read_fasta("~/Local/fasta/ecoli_UniProt.fasta")
 #'
 #' proteins <- digest(proteins, enzyme = "[K]", partial = 2)
@@ -39,16 +39,16 @@ digest <- function(
     return(x)
   }, mc.cores = mc.cores)
 
-  return(rmsfasta(x))
+  return(msfastar(x))
 }
 
 
-#' Get all peptides from rmsfasta object as a vector
+#' Get all peptides from msfastar object as a vector
 #'
 #' @description
 #' `get_peptides()` will return all peptides as string vector
 #'
-#' @param x an rmsfasta data object
+#' @param x an msfastar data object
 #'
 #' @return a vector
 #' @export

@@ -23,7 +23,7 @@ a list
 }
 \examples{
 \dontrun{
-library(rmsfasta)
+library(msfastar)
 proteins <- read_fasta("~/Local/fasta/ecoli_UniProt.fasta")
 
 # using a custom supplied regex list
