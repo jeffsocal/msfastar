@@ -1,14 +1,13 @@
 Package: msfastar
 Type: Package
-Title: An R MS FASTA Reader and Parser
+Title: A light-weight FASTA reader and parser
 Version: 0.8.0
 Authors@R: 
     person("Jeff", "Jones", , "jeffj@caltech.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7142-2222"))
 Description: 
-    Utilizes light-weight R packages and regular expressions for parsing FASTA 
-    files into R usable formats and generating expected peptides from a protease 
-    digestion.
+    A light-weight R package for parsing FASTA files into R usable formats and 
+    generating expected peptides from a given regex.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
