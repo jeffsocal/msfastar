@@ -7,7 +7,7 @@
 check_fasta(x = NULL)
 }
 \arguments{
-\item{data}{msfastar data object}
+\item{x}{An rmfasta data object}
 }
 \value{
 silent on success, an abort message on fail

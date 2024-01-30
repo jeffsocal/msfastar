@@ -7,10 +7,19 @@
 regex(params = NULL)
 }
 \arguments{
-\item{params}{as list}
-}
-\value{
-a list
+\item{params}{A list of the meta data to be extracted from the fasta file
+
+Example:
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{list(
+  "accession" = "(?<=|)[A-Z0-9]\{5,12\}",
+  "protein_name" = "(?<=|)[A-Z0-9\\\\_]\{8,\}(?=\\\\s)",
+  "gene_name" = "(?<=GN\\\\=).*?(?=\\\\s..\\\\=)",
+  "organism" = "(?<=OS\\\\=).*?(?=\\\\s..\\\\=)",
+  "description" = "(?<=\\\\s).*?(?=\\\\s..\\\\=)",
+  "sequence" = "[A-Z]"
+)
+}\if{html}{\out{</div>}}}
 }
 \description{
 \code{regex()} gets and sets the current regex patters to assist the \code{read_fasta()} function.

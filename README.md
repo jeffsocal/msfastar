@@ -1,9 +1,12 @@
+# msfastar <img src="man/figures/msfastar_logo.png" align="right" width="120"/>
+
 An lightweight R package parsing
 [FASTA](https://en.wikipedia.org/wiki/FASTA_format) (like those from
 [UniProt](https://www.uniprot.org/)) files into an R usable `list` or
 `data.frame`. The main function utilizes [regular
 expressions](https://en.wikipedia.org/wiki/Regular_expression) to
-extract meta data along with the protein sequence.
+extract meta data along with the protein sequence. Some functions have been written
+in `Rust` to optimize performance.
 
 ## Installation
 
@@ -21,14 +24,9 @@ downloaded FASTA file and save as an object.
 
 ``` r
 library(msfastar)
-#> 
-#> Attaching package: 'msfastar'
-#> The following object is masked from 'package:base':
-#> 
-#>     read_fasta
-
 path_to_fasta <- system.file("extdata", "albu_human.fasta", package = "msfastar")
 fasta_data <- read_fasta(path_to_fasta)
+
 #> ℹ Parsing FASTA file albu_human.fasta
 #> ✔ Parsing FASTA file albu_human.fasta ... done
 #> 
@@ -60,6 +58,7 @@ function.
 fasta_data <- lapply(fasta_data, digest)
 
 fasta_data[[1]]
+
 #> $accession
 #> [1] "P02768"
 #> 
@@ -106,16 +105,8 @@ Alternatively read_fasta the FASTA file into a `data.frame`.
 
 ``` r
 library(tidyverse, warn.conflicts = FALSE)
-#> ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-#> ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-#> ✔ tibble  3.1.8     ✔ dplyr   1.0.9
-#> ✔ tidyr   1.2.0     ✔ stringr 1.4.0
-#> ✔ readr   2.1.2     ✔ forcats 0.5.1
-#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-#> ✖ dplyr::filter()  masks stats::filter()
-#> ✖ dplyr::lag()     masks stats::lag()
-#> ✖ stringr::regex() masks msfastar::regex()
 fasta_data <- read_fasta(path_to_fasta) |> as.data.frame() |> as_tibble()
+
 #> ℹ Parsing FASTA file albu_human.fasta
 #> ✔ Parsing FASTA file albu_human.fasta ... done
 

@@ -2,32 +2,30 @@
 % Please edit documentation in R/read_fasta.R
 \name{read_fasta}
 \alias{read_fasta}
-\title{The main function for parsing a fasta file}
+\title{Read the contents of a fasta file}
 \usage{
-read_fasta(fasta_path = NULL, patterns = NULL)
+read_fasta(path = NULL, patterns = NULL)
 }
 \arguments{
-\item{fasta_path}{a character string of the path to the fasta formatted file}
+\item{path}{A character string of the path to the fasta formatted file}
 
-\item{patterns}{a list, if not provided the default from \code{regex()} will be used.
+\item{patterns}{A list, if not provided the default from \code{regex()} will be used.
 \emph{Note}: the first element in the regex list will define the list reference name, such
 that with the list output, each protein can be accessed with that designation.
 \emph{Note}: if the patterns list is missing an explicit "sequence" element, no sequence will
 be returned. This might be beneficial if only a few meta elements are sought.}
 }
-\value{
-a list
-}
 \description{
-\code{read_fasta()} get the current regex
+\code{read_fasta()} reads in a fasta file and parses the meta data and protein
+sequence based on the \code{patterns} regex definition.
 }
 \examples{
 \dontrun{
 library(msfastar)
-proteins <- read_fasta("~/Local/fasta/ecoli_UniProt.fasta")
+proteins <- system.file("extdata", "albu_human.fasta", package = "msfastar") |> read_fasta()
 
 # using a custom supplied regex list
-proteins <- read_fasta(fasta_path = "~/Local/fasta/ecoli_UniProt.fasta",
+proteins <- read_fasta(path = "~/Local/fasta/ecoli_UniProt.fasta",
                   pattern = list(
                       "accession" = "sp\\\\|[A-Z]",
                       "gene_name" = "(?<=GN\\\\=).*?(?=\\\\s..\\\\=)"

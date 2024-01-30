@@ -1,50 +1,54 @@
-#' The main function for parsing a fasta file
+#' Read the contents of a fasta file
 #'
 #' @description
-#' `read_fasta()` get the current regex
+#' `read_fasta()` reads in a fasta file and parses the meta data and protein
+#' sequence based on the `patterns` regex definition.
 #'
-#' @param fasta_path a character string of the path to the fasta formatted file
-#' @param patterns a list, if not provided the default from `regex()` will be used.
+#' @param path
+#' A character string of the path to the fasta formatted file
+#'
+#' @param patterns
+#' A list, if not provided the default from `regex()` will be used.
 #' *Note*: the first element in the regex list will define the list reference name, such
 #' that with the list output, each protein can be accessed with that designation.
 #' *Note*: if the patterns list is missing an explicit "sequence" element, no sequence will
 #' be returned. This might be beneficial if only a few meta elements are sought.
 #'
-#' @return a list
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' library(msfastar)
-#' proteins <- read_fasta("~/Local/fasta/ecoli_UniProt.fasta")
+#' proteins <- system.file("extdata", "albu_human.fasta", package = "msfastar") |> read_fasta()
 #'
 #' # using a custom supplied regex list
-#' proteins <- read_fasta(fasta_path = "~/Local/fasta/ecoli_UniProt.fasta",
+#' proteins <- read_fasta(path = "~/Local/fasta/ecoli_UniProt.fasta",
 #'                   pattern = list(
 #'                       "accession" = "sp\\|[A-Z]",
 #'                       "gene_name" = "(?<=GN\\=).*?(?=\\s..\\=)"
 #'                   ))
 #' }
 #'
-read_fasta <- function(fasta_path = NULL,
-                       patterns = NULL
+read_fasta <- function(
+    path = NULL,
+    patterns = NULL
 ){
 
   cli::cli_div(theme = list(span.emph = list(color = "#ff4500")))
-  if(is.null(fasta_path)) {cli::cli_abort(c("x" = "fasta_path is empty"))}
-  if(!grepl("\\.fasta", fasta_path)) {
-    file_ext <- stringr::str_extract(fasta_path, "\\..+$")
+  if(is.null(path)) {cli::cli_abort(c("x" = "path is empty"))}
+  if(!grepl("\\.fasta", path)) {
+    file_ext <- stringr::str_extract(path, "\\..+$")
     cli::cli_abort(c("x" = "expected a {.emph .fasta} file, got {.emph {file_ext}}"))
   }
 
   if(is.null(patterns)) { patterns <- regex() }
   if(mode(patterns) != 'list') {cli::cli_abort(c("x" = "patterns is `{mode(patterns)}`, should be a list"))}
 
-  cli::cli_progress_step("Parsing FASTA file {basename(fasta_path)}")
+  cli::cli_progress_step("Parsing FASTA file {basename(path)}")
 
   tryCatch({
 
-    l_fasta <- readr::read_file(fasta_path)
+    l_fasta <- readr::read_file(path)
     l_fasta <- gsub("->", "-", l_fasta)
 
     # read in fasta file
@@ -60,7 +64,5 @@ read_fasta <- function(fasta_path = NULL,
     cli::cli_abort(err)
   })
 
-  class(l_fasta) <- 'msfastar'
-
-  return(l_fasta)
+  return(msfastar(l_fasta))
 }

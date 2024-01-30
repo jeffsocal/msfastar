@@ -4,15 +4,18 @@
 \alias{as.data.frame.msfastar}
 \title{Helper function for converting a msfastar object to a table}
 \usage{
-\method{as.data.frame}{msfastar}(x, .drop = NULL, ...)
+\method{as.data.frame}{msfastar}(x, row.names = TRUE, optional = NULL, .drop = NULL, ...)
 }
 \arguments{
-\item{x}{rmfasta data object}
+\item{x}{An rmfasta data object}
 
-\item{...}{unused legacy}
-}
-\value{
-a data.frame
+\item{row.names}{Dead-end generic/method for consistency}
+
+\item{optional}{Dead-end generic/method for consistency}
+
+\item{.drop}{Call out columns to drop from the data.frame}
+
+\item{...}{Unused generic/method for consistency}
 }
 \description{
 Helper function for converting a msfastar object to a table

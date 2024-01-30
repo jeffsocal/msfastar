@@ -1,12 +1,13 @@
-#' Get the string defined by the regex
+#' A helper function to get the string defined by the regex
 #'
 #' @description
-#' `extract()` get the current string based on regex
+#' `extract()` get the current string based on regex search
 #'
-#' @param string a character
-#' @param regex a list
+#' @param string
+#' A section of text
 #'
-#' @return a list
+#' @param regex
+#' A list of regular expressions defining bits of text to exract
 #'
 extract <- function(
     string = NULL,

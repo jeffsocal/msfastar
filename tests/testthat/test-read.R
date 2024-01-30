@@ -2,7 +2,7 @@ test_that("read and parse a FASTA file", {
 
   expect_error(
     suppressMessages(
-      "inst/extdata/albu_human.fasta" |> read_fasta()
+      "nopath/albu_human.fasta" |> read_fasta()
     )
   )
 
@@ -13,7 +13,7 @@ test_that("read and parse a FASTA file", {
   )
 
   suppressMessages(
-    psdb <- "../../inst/extdata/albu_human.fasta" |>
+    psdb <- system.file("extdata", "albu_human.fasta", package = "msfastar") |>
       read_fasta()
   )
 

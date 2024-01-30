@@ -2,18 +2,15 @@
 % Please edit documentation in R/print.R
 \name{print.msfastar}
 \alias{print.msfastar}
-\title{Tidy-Quant data object print definition}
+\title{A helper function for the print definition of a msfastar object}
 \usage{
 \method{print}{msfastar}(x, ...)
 }
 \arguments{
-\item{x}{rmfasta data object}
+\item{x}{An rmfasta data object}
 
-\item{...}{unused legacy}
-}
-\value{
-print object summary
+\item{...}{Unused legacy}
 }
 \description{
-Tidy-Quant data object print definition
+A helper function for the print definition of a msfastar object
 }

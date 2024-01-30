@@ -12,10 +12,39 @@
 NULL
 
 #' Return cleaned seqeuence
+#' @param s
+#' A character string of amino acids
 #' @export
 sequence_prep <- function(s) .Call(wrap__sequence_prep, s)
 
-#' Return cleaned seqeuence
+#' The rust implementat to digest()
+#' @param sequence
+#' A character string of amino acids
+#'
+#' @param regex
+#' A character string regular expression use to proteolytically digest
+#' the sequence.
+#' - `[KR]` ... trypsin
+#' - `[KR](?!P)` ... trypsin not at P
+#' - `[R](?!P)` ... arg-c
+#' - `[K](?!P)` ... lys-c
+#' - `[FYWL](?!P)` ... chymotrypsin
+#' - `[BD]` ... asp-n
+#' - `[D]` ... formic acid
+#' - `[FL]` ... pepsin-a
+#'
+#' @param partial
+#' A numeric representing the number of incomplete enzymatic sites (mis-clevage).
+#'
+#' @param lower_pep_len
+#' The minimum peptide length allowed
+#'
+#' @param upper_pep_len
+#' The maximum peptide length allowed
+#'
+#' @param remove_m
+#' A boolean to indicate if the n-term M should be variably removed
+#'
 #' @export
 protease <- function(sequence, regex, partial, lower_pep_len, upper_pep_len, remove_m) .Call(wrap__protease, sequence, regex, partial, lower_pep_len, upper_pep_len, remove_m)
 

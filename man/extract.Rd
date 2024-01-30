@@ -2,18 +2,15 @@
 % Please edit documentation in R/extract.R
 \name{extract}
 \alias{extract}
-\title{Get the string defined by the regex}
+\title{A helper function to get the string defined by the regex}
 \usage{
 extract(string = NULL, regex = NULL)
 }
 \arguments{
-\item{string}{a character}
+\item{string}{A section of text}
 
-\item{regex}{a list}
-}
-\value{
-a list
+\item{regex}{A list of regular expressions defining bits of text to exract}
 }
 \description{
-\code{extract()} get the current string based on regex
+\code{extract()} get the current string based on regex search
 }

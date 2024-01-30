@@ -1,63 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/index.html</loc>
   </url>
   <url>
-    <loc>/reference/check_fasta.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/as.data.frame.msfastar.html</loc>
   </url>
   <url>
-    <loc>/reference/digest.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/as_database.html</loc>
   </url>
   <url>
-    <loc>/reference/msfastar.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/check_fasta.html</loc>
   </url>
   <url>
-    <loc>/reference/extract.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/digest.html</loc>
   </url>
   <url>
-    <loc>/reference/get_peptides.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/epfasta.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/extract.html</loc>
   </url>
   <url>
-    <loc>/reference/parse.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/get_peptides.html</loc>
   </url>
   <url>
-    <loc>/reference/peptides.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/print.msfastar.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/make_peptide_table.html</loc>
   </url>
   <url>
-    <loc>/reference/print.msfastar.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/make_table.html</loc>
   </url>
   <url>
-    <loc>/reference/print.trigfasta.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/msfastar-package.html</loc>
   </url>
   <url>
-    <loc>/reference/println.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/msfastar.html</loc>
   </url>
   <url>
-    <loc>/reference/read_fasta.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/parse.html</loc>
   </url>
   <url>
-    <loc>/reference/regex.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/peptides.html</loc>
   </url>
   <url>
-    <loc>/reference/msfastar.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/print.epfasta.html</loc>
   </url>
   <url>
-    <loc>/reference/trigfasta.html</loc>
+    <loc>https://jeffsocal.github.io/msfastar/reference/print.msfastar.html</loc>
+  </url>
+  <url>
+    <loc>https://jeffsocal.github.io/msfastar/reference/print.rmsfasta.html</loc>
+  </url>
+  <url>
+    <loc>https://jeffsocal.github.io/msfastar/reference/print.trigfasta.html</loc>
+  </url>
+  <url>
+    <loc>https://jeffsocal.github.io/msfastar/reference/println.html</loc>
+  </url>
+  <url>
+    <loc>https://jeffsocal.github.io/msfastar/reference/protease.html</loc>
+  </url>
+  <url>
+    <loc>https://jeffsocal.github.io/msfastar/reference/read_fasta.html</loc>
+  </url>
+  <url>
+    <loc>https://jeffsocal.github.io/msfastar/reference/regex.html</loc>
+  </url>
+  <url>
+    <loc>https://jeffsocal.github.io/msfastar/reference/rmsfasta.html</loc>
+  </url>
+  <url>
+    <loc>https://jeffsocal.github.io/msfastar/reference/save_fasta.html</loc>
+  </url>
+  <url>
+    <loc>https://jeffsocal.github.io/msfastar/reference/sequence_prep.html</loc>
+  </url>
+  <url>
+    <loc>https://jeffsocal.github.io/msfastar/reference/trigfasta.html</loc>
+  </url>
+  <url>
+    <loc>https://jeffsocal.github.io/msfastar/reference/write_fasta.html</loc>
   </url>
 </urlset>

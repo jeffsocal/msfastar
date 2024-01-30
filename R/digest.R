@@ -1,28 +1,40 @@
-#' Proteolytic digest a read_fastad fasta list
+#' Proteolytic digest a fasta data object
 #'
 #' @description
 #' `digest()` Generates peptide sequences based on *enzyme* and *partial* inputs.
 #' Only works with the "list" output of the `read_fasta()` function
 #'
-#' @param x an msfastar data object
-#' @param ... parameters for `peptides()`
-#' @param mc.cores number of parallel cores to use for processing
+#' @param x
+#' An rmfasta data object
 #'
-#' @return a msfastar data object
+#' @param regex
+#' The regular expression used to specify which amino acids to cleave at.
+#'
+#' @param partial
+#' The number of incomplete cleavage sites peptides can retain in the database
+#'
+#' @param peptide_length
+#' As numeric vector representing the minimum and maximum sequence lengths.
+#'
+#' @param remove_m
+#' A boolean to indicate if the n-term M should be variably removed
+#'
+#' @param mc.cores
+#' The number of CPU cores to engage in protein digestion
+#'
 #' @export
 #'
 #' @examples
 #' library(msfastar)
-#' proteins <- read_fasta("~/Local/fasta/ecoli_UniProt.fasta")
+#' proteins <- system.file("extdata", "albu_human.fasta", package = "msfastar") |> read_fasta()
 #'
-#' proteins <- digest(proteins, enzyme = "[K]", partial = 2)
+#' proteins <- digest(proteins, regex = ".+?[K]", partial = 2)
 #'
 digest <- function(
     x = NULL,
     regex = ".+?[KR]",
     partial = 2,
-    lower_pep_len = 6,
-    upper_pep_len = 30,
+    peptide_length = c(6, 30),
     remove_m = FALSE,
     mc.cores = 1
 ){
@@ -30,12 +42,14 @@ digest <- function(
   cli::cli_progress_step(" .. digesting proteins")
 
   check_fasta(x)
+
   x <- parallel::mclapply(x, function(x) {
-    x$peptides <- x$sequence |> protease(regex,
-                                         partial,
-                                         lower_pep_len,
-                                         upper_pep_len,
-                                         remove_m)
+    x$peptides <- x$sequence |>
+      protease(regex,
+               partial,
+               min(peptide_length),
+               max(peptide_length),
+               remove_m)
     return(x)
   }, mc.cores = mc.cores)
 
@@ -46,11 +60,11 @@ digest <- function(
 #' Get all peptides from msfastar object as a vector
 #'
 #' @description
-#' `get_peptides()` will return all peptides as string vector
+#' `get_peptides()` will return all peptides as single string vector
 #'
-#' @param x an msfastar data object
+#' @param x
+#' An rmfasta data object
 #'
-#' @return a vector
 #' @export
 #'
 get_peptides <- function(

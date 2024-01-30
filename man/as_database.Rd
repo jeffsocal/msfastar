@@ -7,12 +7,7 @@
 as_database(x)
 }
 \arguments{
-\item{x}{rmfasta data object}
-
-\item{...}{unused legacy}
-}
-\value{
-a data.frame
+\item{x}{An rmfasta data object}
 }
 \description{
 Helper function for converting a msfastar object to a table

@@ -2,7 +2,7 @@
 % Please edit documentation in R/peptides.R
 \name{peptides}
 \alias{peptides}
-\title{Proteolytic digest a sequence}
+\title{Proteolyticly digest a sequence}
 \usage{
 peptides(
   sequence = NULL,
@@ -13,9 +13,9 @@ peptides(
 )
 }
 \arguments{
-\item{sequence}{as character string}
+\item{sequence}{A character string of amino acids}
 
-\item{enzyme}{a character string regular expression use to proteolytically digest
+\item{enzyme}{A character string regular expression use to proteolytically digest
 the sequence.
 \itemize{
 \item \verb{[KR]} ... trypsin
@@ -28,15 +28,14 @@ the sequence.
 \item \verb{[FL]} ... pepsin-a
 }}
 
-\item{partial}{a numeric representing the number of incomplete enzymatic sites (mis-clevage).}
+\item{partial}{A numeric representing the number of incomplete enzymatic sites (mis-clevage).}
 
-\item{length}{as numeric vactor representing the minimum and maximum sequence lengths.}
-}
-\value{
-a vector
+\item{length}{As numeric vector representing the minimum and maximum sequence lengths.}
+
+\item{remove_nterm_m}{A boolean to indicate if the n-term M should be variably removed}
 }
 \description{
-\code{peptides()} Generates peptide sequences based on \code{enzyme} and \code{partial} inputs.
+\code{peptides()} generates peptide sequences based on \code{enzyme} and \code{partial} inputs.
 }
 \examples{
 library(msfastar)

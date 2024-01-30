@@ -7,10 +7,9 @@
 make_table(x, .drop = NULL)
 }
 \arguments{
-\item{x}{rmfasta data object}
-}
-\value{
-a data.frame
+\item{x}{An rmfasta data object}
+
+\item{.drop}{Call out columns to drop from the data.frame}
 }
 \description{
 Helper function for converting a msfastar object to a table

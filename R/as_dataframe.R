@@ -1,20 +1,33 @@
 #' Helper function for converting a msfastar object to a table
 #'
-#' @param x rmfasta data object
-#' @param ... unused legacy
+#' @param x
+#' An rmfasta data object
 #'
-#' @return a data.frame
+#' @param row.names
+#' Dead-end generic/method for consistency
+#'
+#' @param optional
+#' Dead-end generic/method for consistency
+#'
+#' @param .drop
+#' Call out columns to drop from the data.frame
+#'
+#' @param ...
+#' Unused generic/method for consistency
 #'
 #' @exportS3Method
 #'
 as.data.frame.msfastar <- function(
     x,
+    row.names = TRUE,
+    optional = NULL,
     .drop = NULL,
     ...
 ) {
 
   if(!is.null(.drop)){
     .drop <- rlang::arg_match(.drop, names(x[[1]]), multiple = TRUE)
+    .drop <- setdiff(names(x[[1]]), .drop)
   }
 
   check_fasta(x)
@@ -25,10 +38,9 @@ as.data.frame.msfastar <- function(
 
 #' Helper function for converting a msfastar object to a table
 #'
-#' @param x rmfasta data object
-#' @param ... unused legacy
+#' @param x
+#' An rmfasta data object
 #'
-#' @return a data.frame
 #' @export
 #'
 as_database <- function(
@@ -48,11 +60,16 @@ as_database <- function(
 
 #' Helper function for converting a msfastar object to a table
 #'
-#' @param x rmfasta data object
+#' @param x
+#' An rmfasta data object
 #'
-#' @return a data.frame
+#' @param .drop
+#' Call out columns to drop from the data.frame
 #'
-make_table <- function(x, .drop = NULL){
+make_table <- function(
+    x,
+    .drop = NULL
+){
 
   if(!is.null(.drop)){
     w_drop <- which(names(x) %in% .drop)
@@ -74,11 +91,16 @@ make_table <- function(x, .drop = NULL){
 
 #' Helper function for converting a msfastar object to a table
 #'
-#' @param x rmfasta data object
+#' @param x
+#' An rmfasta data object
 #'
-#' @return a data.frame
+#' @param .drop
+#' Call out columns to drop from the data.frame
 #'
-make_peptide_table <- function(x, .drop = NULL){
+make_peptide_table <- function(
+    x,
+    .drop = NULL
+){
   w_acc <- which(names(x) == 'accession')
   w_pep <- which(names(x) == 'peptides')
 

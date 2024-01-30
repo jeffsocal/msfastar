@@ -4,7 +4,9 @@
 #'
 #' @return FASTA data object
 #'
-msfastar <- function(obj) {
+msfastar <- function(
+    obj = NULL
+) {
   class(obj) <- "msfastar"
   return(obj)
 }
@@ -15,7 +17,8 @@ msfastar <- function(obj) {
 #' `check_fasta()` is a helper function that checks the structure and contents of
 #' a msfastar data object
 #'
-#' @param data msfastar data object
+#' @param x
+#' An rmfasta data object
 #'
 #' @return silent on success, an abort message on fail
 #'
@@ -31,7 +34,7 @@ check_fasta <- function(
   if(mode(x) != "list") {
     cli::cli_abort(c("x" = "Input is {.emph mode(protein)}}, should be an {.emph list}"))
   }
-  if(class(x) != 'msfastar') {
+  if(!methods::is(x, 'msfastar')) {
     cli::cli_div(theme = list(span.emph = list(color = "#ff4500")))
     cli::cli_abort(c("x" = "Input must be of type {.emph msfastar}"))
   }

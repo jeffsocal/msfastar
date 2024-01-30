@@ -2,27 +2,29 @@
 % Please edit documentation in R/digest.R
 \name{digest}
 \alias{digest}
-\title{Proteolytic digest a read_fastad fasta list}
+\title{Proteolytic digest a fasta data object}
 \usage{
 digest(
   x = NULL,
   regex = ".+?[KR]",
   partial = 2,
-  lower_pep_len = 6,
-  upper_pep_len = 30,
+  peptide_length = c(6, 30),
   remove_m = FALSE,
   mc.cores = 1
 )
 }
 \arguments{
-\item{x}{an msfastar data object}
+\item{x}{An rmfasta data object}
 
-\item{mc.cores}{number of parallel cores to use for processing}
+\item{regex}{The regular expression used to specify which amino acids to cleave at.}
 
-\item{...}{parameters for \code{peptides()}}
-}
-\value{
-a msfastar data object
+\item{partial}{The number of incomplete cleavage sites peptides can retain in the database}
+
+\item{peptide_length}{As numeric vector representing the minimum and maximum sequence lengths.}
+
+\item{remove_m}{A boolean to indicate if the n-term M should be variably removed}
+
+\item{mc.cores}{The number of CPU cores to engage in protein digestion}
 }
 \description{
 \code{digest()} Generates peptide sequences based on \emph{enzyme} and \emph{partial} inputs.
@@ -30,8 +32,8 @@ Only works with the "list" output of the \code{read_fasta()} function
 }
 \examples{
 library(msfastar)
-proteins <- read_fasta("~/Local/fasta/ecoli_UniProt.fasta")
+proteins <- system.file("extdata", "albu_human.fasta", package = "msfastar") |> read_fasta()
 
-proteins <- digest(proteins, enzyme = "[K]", partial = 2)
+proteins <- digest(proteins, regex = ".+?[K]", partial = 2)
 
 }

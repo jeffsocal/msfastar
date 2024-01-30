@@ -1,12 +1,13 @@
-#' Proteolytic digest a sequence
+#' Proteolyticly digest a sequence
 #'
 #' @description
-#' `peptides()` Generates peptide sequences based on `enzyme` and `partial` inputs.
+#' `peptides()` generates peptide sequences based on `enzyme` and `partial` inputs.
 #'
-#' @param sequence as character string
-#' @param partial a numeric representing the number of incomplete enzymatic sites (mis-clevage).
-#' @param length as numeric vactor representing the minimum and maximum sequence lengths.
-#' @param enzyme a character string regular expression use to proteolytically digest
+#' @param sequence
+#' A character string of amino acids
+#'
+#' @param enzyme
+#' A character string regular expression use to proteolytically digest
 #' the sequence.
 #'  - `[KR]` ... trypsin
 #'  - `[KR](?!P)` ... trypsin not at P
@@ -17,7 +18,15 @@
 #'  - `[D]` ... formic acid
 #'  - `[FL]` ... pepsin-a
 #'
-#' @return a vector
+#' @param partial
+#' A numeric representing the number of incomplete enzymatic sites (mis-clevage).
+#'
+#' @param length
+#' As numeric vector representing the minimum and maximum sequence lengths.
+#'
+#' @param remove_nterm_m
+#' A boolean to indicate if the n-term M should be variably removed
+#'
 #' @export
 #'
 #' @examples

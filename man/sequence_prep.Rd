@@ -6,6 +6,9 @@
 \usage{
 sequence_prep(s)
 }
+\arguments{
+\item{s}{A character string of amino acids}
+}
 \description{
 Return cleaned seqeuence
 }

@@ -1,3 +1,8 @@
+url: https://jeffsocal.github.io/msfastar/
+navbar:
+  components:
+    home: ~
+
 template:
   bootstrap: 5
 reference:
@@ -18,3 +23,10 @@ reference:
   - println
   - regex
   - msfastar
+  - as.data.frame.msfastar
+  - as_database
+  - make_peptide_table
+  - make_table
+  - protease
+  - write_fasta
+  - sequence_prep

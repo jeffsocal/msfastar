@@ -1,18 +1,20 @@
-#' Tidy-Quant data object print definition
+#' A helper function for the print definition of a msfastar object
 #'
-#' @param x rmfasta data object
-#' @param ... unused legacy
+#' @param x
+#' An rmfasta data object
 #'
-#' @return print object summary
+#' @param ...
+#' Unused legacy
 #'
 #' @exportS3Method
 #'
 print.msfastar <- function(
-    x, ...
+    x,
+    ...
 ) {
 
   check_fasta(x)
-  x.size <- as.numeric(object.size(x))
+  x.size <- as.numeric(utils::object.size(x))
 
   cli::cli_h2(cli::style_bold("{.emph R MS FASTA data object}"))
   println("memory", glue::glue("{prettyunits::pretty_bytes(x.size)}"))

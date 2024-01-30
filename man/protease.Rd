@@ -2,10 +2,34 @@
 % Please edit documentation in R/extendr-wrappers.R
 \name{protease}
 \alias{protease}
-\title{Return cleaned seqeuence}
+\title{The rust implementat to digest()}
 \usage{
 protease(sequence, regex, partial, lower_pep_len, upper_pep_len, remove_m)
 }
+\arguments{
+\item{sequence}{A character string of amino acids}
+
+\item{regex}{A character string regular expression use to proteolytically digest
+the sequence.
+\itemize{
+\item \verb{[KR]} ... trypsin
+\item \verb{[KR](?!P)} ... trypsin not at P
+\item \verb{[R](?!P)} ... arg-c
+\item \verb{[K](?!P)} ... lys-c
+\item \verb{[FYWL](?!P)} ... chymotrypsin
+\item \verb{[BD]} ... asp-n
+\item \verb{[D]} ... formic acid
+\item \verb{[FL]} ... pepsin-a
+}}
+
+\item{partial}{A numeric representing the number of incomplete enzymatic sites (mis-clevage).}
+
+\item{lower_pep_len}{The minimum peptide length allowed}
+
+\item{upper_pep_len}{The maximum peptide length allowed}
+
+\item{remove_m}{A boolean to indicate if the n-term M should be variably removed}
+}
 \description{
-Return cleaned seqeuence
+The rust implementat to digest()
 }

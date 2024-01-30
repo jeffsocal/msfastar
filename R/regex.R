@@ -6,9 +6,21 @@
 #' can also be supplied. To set elements in the `regex()` function, simply provide a
 #' list with complementary names to over-write the current list.
 #'
-#' @param params as list
+#' @param params
+#' A list of the meta data to be extracted from the fasta file
 #'
-#' @return a list
+#' Example:
+#' ```
+#' list(
+#'   "accession" = "(?<=|)[A-Z0-9]{5,12}",
+#'   "protein_name" = "(?<=|)[A-Z0-9\\_]{8,}(?=\\s)",
+#'   "gene_name" = "(?<=GN\\=).*?(?=\\s..\\=)",
+#'   "organism" = "(?<=OS\\=).*?(?=\\s..\\=)",
+#'   "description" = "(?<=\\s).*?(?=\\s..\\=)",
+#'   "sequence" = "[A-Z]"
+#' )
+#' ```
+#'
 #' @export
 #'
 #' @examples

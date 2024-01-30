@@ -5,7 +5,7 @@ test_that("protease digestion", {
   )
 
   suppressMessages(
-    psdb <- "../../inst/extdata/albu_human.fasta" |>
+    psdb <- system.file("extdata", "albu_human.fasta", package = "msfastar") |>
       read_fasta()
   )
 
@@ -15,8 +15,7 @@ test_that("protease digestion", {
         digest(
           regex = ".+?[KR]",
           partial = 2,
-          lower_pep_len = 6,
-          upper_pep_len = 30
+          peptide_length = c(6, 30)
         ) |>
         lapply(function(x){x$peptides |> length()}) |>
         unlist() |>
@@ -31,8 +30,7 @@ test_that("protease digestion", {
         digest(
           regex = ".+?[HW]",
           partial = 2,
-          lower_pep_len = 6,
-          upper_pep_len = 30
+          peptide_length = c(6, 30)
         ) |>
         lapply(function(x){x$peptides |> length()}) |>
         unlist() |>

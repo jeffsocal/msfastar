@@ -7,11 +7,8 @@
 get_peptides(x = NULL)
 }
 \arguments{
-\item{x}{an msfastar data object}
-}
-\value{
-a vector
+\item{x}{An rmfasta data object}
 }
 \description{
-\code{get_peptides()} will return all peptides as string vector
+\code{get_peptides()} will return all peptides as single string vector
 }

@@ -4,7 +4,7 @@
 \alias{msfastar}
 \title{FASTA data object}
 \usage{
-msfastar(obj)
+msfastar(obj = NULL)
 }
 \arguments{
 \item{obj}{FASTA data list}
