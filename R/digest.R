@@ -9,6 +9,14 @@
 #'
 #' @param regex
 #' The regular expression used to specify which amino acids to cleave at.
+#'  - `.*?[KR]` ... trypsin
+#'  - `.*?[KR](?!P)` ... trypsin not at P
+#'  - `.*?[R](?!P)` ... arg-c
+#'  - `.*?[K](?!P)` ... lys-c
+#'  - `.*?[FYWL](?!P)` ... chymotrypsin
+#'  - `.*?[BD]` ... asp-n
+#'  - `.*?[D]` ... formic acid
+#'  - `.*?[FL]` ... pepsin-a
 #'
 #' @param partial
 #' The number of incomplete cleavage sites peptides can retain in the database
@@ -28,11 +36,11 @@
 #' library(msfastar)
 #' proteins <- system.file("extdata", "albu_human.fasta", package = "msfastar") |> read_fasta()
 #'
-#' proteins <- digest(proteins, regex = ".+?[K]", partial = 2)
+#' proteins <- digest(proteins, regex = ".*?[K]", partial = 2)
 #'
 digest <- function(
     x = NULL,
-    regex = ".+?[KR]",
+    regex = ".*?[KR]",
     partial = 2,
     peptide_length = c(6, 30),
     remove_m = FALSE,

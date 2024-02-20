@@ -6,7 +6,7 @@
 \usage{
 digest(
   x = NULL,
-  regex = ".+?[KR]",
+  regex = ".*?[KR]",
   partial = 2,
   peptide_length = c(6, 30),
   remove_m = FALSE,
@@ -16,7 +16,17 @@ digest(
 \arguments{
 \item{x}{An rmfasta data object}
 
-\item{regex}{The regular expression used to specify which amino acids to cleave at.}
+\item{regex}{The regular expression used to specify which amino acids to cleave at.
+\itemize{
+\item \verb{.*?[KR]} ... trypsin
+\item \verb{.*?[KR](?!P)} ... trypsin not at P
+\item \verb{.*?[R](?!P)} ... arg-c
+\item \verb{.*?[K](?!P)} ... lys-c
+\item \verb{.*?[FYWL](?!P)} ... chymotrypsin
+\item \verb{.*?[BD]} ... asp-n
+\item \verb{.*?[D]} ... formic acid
+\item \verb{.*?[FL]} ... pepsin-a
+}}
 
 \item{partial}{The number of incomplete cleavage sites peptides can retain in the database}
 
@@ -34,6 +44,6 @@ Only works with the "list" output of the \code{read_fasta()} function
 library(msfastar)
 proteins <- system.file("extdata", "albu_human.fasta", package = "msfastar") |> read_fasta()
 
-proteins <- digest(proteins, regex = ".+?[K]", partial = 2)
+proteins <- digest(proteins, regex = ".*?[K]", partial = 2)
 
 }
