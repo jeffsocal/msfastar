@@ -12,14 +12,14 @@ protease(sequence, regex, partial, lower_pep_len, upper_pep_len, remove_m)
 \item{regex}{A character string regular expression use to proteolytically digest
 the sequence.
 \itemize{
-\item \verb{[KR]} ... trypsin
-\item \verb{[KR](?!P)} ... trypsin not at P
-\item \verb{[R](?!P)} ... arg-c
-\item \verb{[K](?!P)} ... lys-c
-\item \verb{[FYWL](?!P)} ... chymotrypsin
-\item \verb{[BD]} ... asp-n
-\item \verb{[D]} ... formic acid
-\item \verb{[FL]} ... pepsin-a
+\item \verb{.*?[KR]} ... trypsin
+\item \verb{.*?[KR](?!P)} ... trypsin not at P
+\item \verb{.*?[R](?!P)} ... arg-c
+\item \verb{.*?[K](?!P)} ... lys-c
+\item \verb{.*?[FYWL](?!P)} ... chymotrypsin
+\item \verb{.*?[BD]} ... asp-n
+\item \verb{.*?[D]} ... formic acid
+\item \verb{.*?[FL]} ... pepsin-a
 }}
 
 \item{partial}{A numeric representing the number of incomplete enzymatic sites (mis-clevage).}

@@ -79,6 +79,9 @@
     <loc>https://jeffsocal.github.io/msfastar/reference/regex.html</loc>
   </url>
   <url>
+    <loc>https://jeffsocal.github.io/msfastar/reference/reorder.html</loc>
+  </url>
+  <url>
     <loc>https://jeffsocal.github.io/msfastar/reference/rmsfasta.html</loc>
   </url>
   <url>
@@ -86,6 +89,9 @@
   </url>
   <url>
     <loc>https://jeffsocal.github.io/msfastar/reference/sequence_prep.html</loc>
+  </url>
+  <url>
+    <loc>https://jeffsocal.github.io/msfastar/reference/subset.msfastar.html</loc>
   </url>
   <url>
     <loc>https://jeffsocal.github.io/msfastar/reference/trigfasta.html</loc>

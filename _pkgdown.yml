@@ -15,9 +15,11 @@ reference:
   - get_peptides
   - peptides
   - print.msfastar
+  - subset.msfastar
 
 - title: internal
   contents:
+  - msfastar-package
   - check_fasta
   - extract
   - println
@@ -30,3 +32,5 @@ reference:
   - protease
   - write_fasta
   - sequence_prep
+  - reorder
+

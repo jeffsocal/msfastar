@@ -21,7 +21,7 @@ test_that("protease digestion", {
         unlist() |>
         sum()
     ),
-    383
+    392
   )
 
   expect_equal(

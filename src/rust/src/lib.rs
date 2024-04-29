@@ -22,14 +22,14 @@ fn sequence_prep(s: &str) -> String {
 /// @param regex
 /// A character string regular expression use to proteolytically digest
 /// the sequence.
-/// - `[KR]` ... trypsin
-/// - `[KR](?!P)` ... trypsin not at P
-/// - `[R](?!P)` ... arg-c
-/// - `[K](?!P)` ... lys-c
-/// - `[FYWL](?!P)` ... chymotrypsin
-/// - `[BD]` ... asp-n
-/// - `[D]` ... formic acid
-/// - `[FL]` ... pepsin-a
+/// - `.*?[KR]` ... trypsin
+/// - `.*?[KR](?!P)` ... trypsin not at P
+/// - `.*?[R](?!P)` ... arg-c
+/// - `.*?[K](?!P)` ... lys-c
+/// - `.*?[FYWL](?!P)` ... chymotrypsin
+/// - `.*?[BD]` ... asp-n
+/// - `.*?[D]` ... formic acid
+/// - `.*?[FL]` ... pepsin-a
 ///
 /// @param partial
 /// A numeric representing the number of incomplete enzymatic sites (mis-clevage).

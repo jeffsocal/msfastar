@@ -49,15 +49,18 @@ digest <- function(
 
   cli::cli_progress_step(" .. digesting proteins")
 
+  regex <- regex |> stringr::str_replace("\\]$", "#]")
+
   check_fasta(x)
 
   x <- parallel::mclapply(x, function(x) {
-    x$peptides <- x$sequence |>
+    x$peptides <- paste0(x$sequence, "#") |>
       protease(regex,
                partial,
                min(peptide_length),
                max(peptide_length),
                remove_m)
+    x$peptides <- gsub("#", "", x$peptides)
     return(x)
   }, mc.cores = mc.cores)
 
