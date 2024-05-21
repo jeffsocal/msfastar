@@ -10,21 +10,36 @@
 #'
 print.msfastar <- function(
     x,
-    ...
+    ...,
+    n = 5
 ) {
 
   check_fasta(x)
+  n.size <- length(x)
   x.size <- as.numeric(utils::object.size(x))
 
   cli::cli_h2(cli::style_bold("{.emph R MS FASTA data object}"))
   println("memory", glue::glue("{prettyunits::pretty_bytes(x.size)}"))
 
-  orgs <- unique(unlist(lapply(x, function(x){ return(x$organism) })))
-  if(length(orgs) > 0) {
-    println("organisms", glue::glue("{paste0(orgs, collapse = ', ')}"))
+  orgs <- lapply(x, function(x){ return(x$organism) }) |>
+    unlist(use.names = FALSE) |>
+    table() |>
+    as.data.frame()
+
+  orgs <- orgs[order(-orgs$Freq),]
+  orgs$Freq <- orgs$Freq / n.size * 100
+  orgs$Var1 <- orgs$Var1 |> as.character()
+
+  if(nrow(orgs) > 0) {
+    println("organisms", nrow(orgs))
+    for(i in 1:min(n, nrow(orgs))){
+      println(glue::glue("      {signif(orgs[i,2], 3)}%"), orgs$Var1[i])
+    }
+    o.perc <- orgs[min(n, nrow(orgs)):nrow(orgs),2] |> sum()
+    println(glue::glue("      {signif(o.perc, 3)}%"), '...other')
   }
 
-  println("sequences", glue::glue("{length(x)}"))
+  println("sequences", n.size)
   leng <- unlist(lapply(x, function(x){ return(stringr::str_length(x$sequence)) }))
   if(length(leng) > 0) {
     println("", glue::glue("shortest:  {min(leng)} residues"))

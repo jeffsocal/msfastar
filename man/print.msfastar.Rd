@@ -4,7 +4,7 @@
 \alias{print.msfastar}
 \title{A helper function for the print definition of a msfastar object}
 \usage{
-\method{print}{msfastar}(x, ...)
+\method{print}{msfastar}(x, ..., n = 5)
 }
 \arguments{
 \item{x}{An rmfasta data object}
